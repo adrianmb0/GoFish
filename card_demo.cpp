@@ -17,26 +17,45 @@ void dealHand(Deck &d, Player &p, int numCards);
 
 int main( )
 {
+////////CARD TESTER//////////
+//    Card testCard;
+//
+//    cout << testCard.toString() << endl;
+//
+//    Card testCard2(1, Card::spades);
+//
+//    cout << testCard2.toString() << endl;
+//
+//    if(testCard.sameSuitAs(testCard2)){
+//        cout << "Same Suit" << endl;
+//    }else{
+//        cout << "Not Same Suit" << endl;
+//    }
+//
+//    if(testCard==testCard2){
+//        cout << "Same Card" << endl;
+//    }else{
+//        cout << "Not Same Card" << endl;
+//    }
 
-    Card testCard;
 
-    cout << testCard.toString() << endl;
+////////DECK TESTER//////////
+Deck newDeck;
 
-    Card testCard2(1, Card::spades);
+//cout << newDeck.dealCard() << endl;
+//cout << newDeck.dealCard() << endl;
+//cout << newDeck.dealCard() << endl;
+//cout << newDeck.dealCard() << endl;
 
-    cout << testCard2.toString() << endl;
+newDeck.shuffle();
 
-    if(testCard.sameSuitAs(testCard2)){
-        cout << "Same Suit" << endl;
-    }else{
-        cout << "Not Same Suit" << endl;
-    }
+cout<< newDeck.dealCard() << endl;
+cout << newDeck.dealCard() << endl;
+cout << newDeck.dealCard() << endl;
+cout << newDeck.dealCard() << endl;
 
-    if(testCard==testCard2){
-        cout << "Same Card" << endl;
-    }else{
-        cout << "Not Same Card" << endl;
-    }
+
+
 
 
 //    int numCards = 5;
