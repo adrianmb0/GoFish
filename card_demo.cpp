@@ -17,30 +17,52 @@ void dealHand(Deck &d, Player &p, int numCards);
 
 int main( )
 {
-    int numCards = 5;
-    
-    Player p1("Joe");
-    Player p2("Jane");
-    
-    Deck d;  //create a deck of cards
-    d.shuffle();
-    
-    dealHand(d, p1, numCards);
-    dealHand(d, p2, numCards);
-       
-    cout << p1.getName() <<" has : " << p1.showHand() << endl;
-    cout << p2.getName() <<" has : " << p2.showHand() << endl;
-    
-    return EXIT_SUCCESS;  
+
+    Card testCard;
+
+    cout << testCard.toString() << endl;
+
+    Card testCard2(1, Card::spades);
+
+    cout << testCard2.toString() << endl;
+
+    if(testCard.sameSuitAs(testCard2)){
+        cout << "Same Suit" << endl;
+    }else{
+        cout << "Not Same Suit" << endl;
+    }
+
+    if(testCard==testCard2){
+        cout << "Same Card" << endl;
+    }else{
+        cout << "Not Same Card" << endl;
+    }
+
+
+//    int numCards = 5;
+//
+//    Player p1("Joe");
+//    Player p2("Jane");
+//
+//    Deck d;  //create a deck of cards
+//    d.shuffle();
+//
+//    dealHand(d, p1, numCards);
+//    dealHand(d, p2, numCards);
+//
+//    cout << p1.getName() <<" has : " << p1.showHand() << endl;
+//    cout << p2.getName() <<" has : " << p2.showHand() << endl;
+//
+//    return EXIT_SUCCESS;
 }
 
 
-
-void dealHand(Deck &d, Player &p, int numCards)
-{
-   for (int i=0; i < numCards; i++)
-      p.addCard(d.dealCard());
-}
+//
+//void dealHand(Deck &d, Player &p, int numCards)
+//{
+//   for (int i=0; i < numCards; i++)
+//      p.addCard(d.dealCard());
+//}
    
 
 

@@ -37,6 +37,7 @@ class Deck
 
     Card myCards[SIZE];
     int myIndex;  // current card to deal
+
 };
 
 #endif
