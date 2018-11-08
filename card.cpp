@@ -2,7 +2,7 @@
 //  card.cpp
 //  
 //
-//  Created by David Fernandez on 11/6/18.
+// Project Finished by Adrian Melo and David Fernandez
 //
 
 #include <stdio.h>

@@ -11,7 +11,7 @@
 // number of cards in the deck (returned by size())
 // The idea is that after shuffling, calling dealCard() 52 times
 // returns each card in the deck after shuffling.
-//
+// Project Finished by Adrian Melo and David Fernandez
 
 #ifndef _DECK_H
 #define _DECK_H
