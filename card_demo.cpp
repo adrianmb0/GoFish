@@ -16,8 +16,7 @@ void dealHand(Deck &d, Player &p, int numCards);
 
 
 
-int main( )
-{
+int main( ) {
 ////////CARD TESTER//////////
 //    Card testCard;
 //
@@ -41,21 +40,34 @@ int main( )
 
 
 ////////DECK TESTER//////////
-Deck newDeck;
+//Deck newDeck;
+//
+//    //Size Tester//
+//cout << "There are " << newDeck.size() << " cards left in the deck" << endl << endl;
+//
+//    //Shuffle Tester
+//newDeck.shuffle();
+//
+//    //SHOW DECK//
+//for(int i = 0; i < 52; i++){
+//    cout << newDeck.dealCard() << endl;
+//}
+//
+//    //Size Edge case of 0 Tester //
+//cout << "There are " << newDeck.size() << "  cards left in the deck" << endl << endl;
 
-    //Size Tester//
-cout << "There are " << newDeck.size() << " cards left in the deck" << endl << endl;
+////////PLAYER TESTER//////////
 
-    //Shuffle Tester
-newDeck.shuffle();
+    int numCards = 5;
 
-    //SHOW DECK//
-for(int i = 0; i < 52; i++){
-    cout << newDeck.dealCard() << endl;
-}
+    Player p1("Adrian");
+    Player p2("David");
 
-    //Size Edge case of 0 Tester //
-cout << "There are " << newDeck.size() << "  cards left in the deck" << endl << endl;
+    Deck d;  //create a deck of cards
+    d.shuffle();
+
+    dealHand(d, p1, numCards);
+    dealHand(d, p2, numCards);
 
 ////////DEMO TESTER//////////
 
@@ -76,13 +88,14 @@ cout << "There are " << newDeck.size() << "  cards left in the deck" << endl << 
 //    return EXIT_SUCCESS;
 }
 
+void dealHand(Deck &d, Player &p, int numCards)
+{
+    for (int i=0; i < numCards; i++)
+        p.addCard(d.dealCard());
+}
 
-//
-//void dealHand(Deck &d, Player &p, int numCards)
-//{
-//   for (int i=0; i < numCards; i++)
-//      p.addCard(d.dealCard());
-//}
+
+
    
 
 
