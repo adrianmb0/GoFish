@@ -69,6 +69,18 @@ int main( ) {
     dealHand(d, p1, numCards);
     dealHand(d, p2, numCards);
 
+    //cout debug statements
+
+    cout << p1.getName()<< endl;
+    cout << p2.getName()<< endl;
+
+    cout << p1.showHand() << endl;
+
+    cout << p1.getHandSize() << endl;
+
+    cout << p1.getBookSize() << endl;
+
+
 ////////DEMO TESTER//////////
 
 //    int numCards = 5;
