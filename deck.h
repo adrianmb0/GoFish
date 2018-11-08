@@ -36,6 +36,8 @@ class Deck
   private:
 
     Card myCards[SIZE];
+
+    //Index set to 51 because cards go from 0 to 51
     int myIndex = 51;  // current card to deal
 
 };

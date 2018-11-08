@@ -42,21 +42,21 @@ int main( )
 ////////DECK TESTER//////////
 Deck newDeck;
 
-//cout << newDeck.dealCard() << endl;
-//cout << newDeck.dealCard() << endl;
-//cout << newDeck.dealCard() << endl;
-//cout << newDeck.dealCard() << endl;
+    //Size Tester//
+cout << "There are " << newDeck.size() << " cards left in the deck" << endl << endl;
 
+    //Shuffle Tester
 newDeck.shuffle();
 
-cout<< newDeck.dealCard() << endl;
-cout << newDeck.dealCard() << endl;
-cout << newDeck.dealCard() << endl;
-cout << newDeck.dealCard() << endl;
+    //SHOW DECK//
+for(int i = 0; i < 52; i++){
+    cout << newDeck.dealCard() << endl;
+}
 
+    //Size Edge case of 0 Tester //
+cout << "There are " << newDeck.size() << "  cards left in the deck" << endl << endl;
 
-
-
+////////DEMO TESTER//////////
 
 //    int numCards = 5;
 //
