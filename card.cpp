@@ -37,7 +37,8 @@ using namespace std;
         }
     }
 
-
+    //Converts Enum to String
+    //Output: suit - s or h or d or c
     string Card::suitString(Suit s) const {
         if (s == spades) {
             return "s";
@@ -48,10 +49,11 @@ using namespace std;
         } else if (s == clubs) {
             return "c";
         } else {
-            return "Error";          // is this right?
+            return "Error";
         }
     }
-
+    //Converts rank int to String
+    //Output: rank - A to K
     string Card::rankString(int r) const {
         if (r == 1) {
             return "A";
@@ -68,7 +70,8 @@ using namespace std;
         }
     }
 
-
+    //Compares two cards
+    //Output: True if equal
     bool Card::operator==(const Card &rhs) const {
         if (myRank != rhs.myRank) {
             return false;
@@ -79,7 +82,8 @@ using namespace std;
         }
     }
 
-
+    //Compares two cards
+    //Output: True if not equal
     bool Card::operator!=(const Card &rhs) const {
         if (myRank == rhs.myRank) {
             return false;
@@ -90,6 +94,7 @@ using namespace std;
         }
     }
 
+    //Operator to be able to outputcards
 ostream& operator << (ostream& out, const Card& c){
         out << c.toString();
         return out;

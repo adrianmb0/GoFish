@@ -15,11 +15,12 @@ Player::Player(){
     myName = "Default Player";
 }
 
-//adds a card to the hand
+//Adds a card to the hand
 void Player::addCard(Card c){
     myHand.push_back(c);
 }
 
+//Books cards to hand
 void Player::bookCards(Card c1, Card c2){
     myBook.push_back(c1);
     myBook.push_back(c2);
@@ -56,7 +57,6 @@ bool Player::rankInHand(Card c) const{
 ////uses some strategy to choose one card from the player's
 ////hand so they can say "Do you have a 4?"
 Card Player::chooseCardFromHand() const{
-    //should we sort the cards then go through them individually?
     return(myHand[0]);
 }
 
@@ -69,6 +69,7 @@ bool Player::cardInHand(Card c) const{
     }
     return false;
 }
+
 ////PreCondition for calling this method is that the card must be in there hand.
 ////Remove the card c from the hand and return it to the caller
 Card Player::removeCardFromHand(Card c){
@@ -83,6 +84,7 @@ Card Player::removeCardFromHand(Card c){
     return temp;
 }
 
+//Shows the hand of a player
 string Player::showHand() const{
     vector<Card>::const_iterator iter;
     string hand;
@@ -93,6 +95,7 @@ string Player::showHand() const{
     return hand;
 }
 
+//Shows the books a player has
 string Player::showBooks() const{
     vector<Card>::const_iterator iter;
     string hand;
@@ -103,6 +106,8 @@ string Player::showBooks() const{
     return hand;
 }
 
+//Gets the ammount of cards in a players hand
+//Outputs: # of cards
 int Player::getHandSize() const{
     vector<Card>::const_iterator iter;
     int size = 0;
@@ -113,7 +118,8 @@ int Player::getHandSize() const{
     return size;
 }
 
-
+//Gets the ammount of books player has
+//Outputs: # of books
 int Player::getBookSize() const{
     vector<Card>::const_iterator iter;
     int cardSize = 0;

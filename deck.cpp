@@ -7,7 +7,7 @@
 #include "deck.h"
 #include "card.h"
 
-
+//Creates a new deck in order with the Ace of Spades as the first card starting at index 51 and goes to 0
 Deck::Deck(){
 
     int i = 51;
@@ -20,6 +20,7 @@ Deck::Deck(){
     }
 }
 
+//Shuffles a deck
 void Deck::shuffle(){
 
     unsigned int currentTime =  (unsigned)time(0);
@@ -42,11 +43,15 @@ void Deck::shuffle(){
     }
 }
 
+//Gives the size of the deck
+//Output: Amount of cards in deck
 int  Deck::size() const {
     //myIndex + 1 because of the index starts at 0 but counting starts at 1
     return (myIndex+1);
 }
 
+//Deals a card from the deck
+//Output: The card on the top of the array
 Card Deck::dealCard(){
     //Need to make a condition to stop dealing after there are no more cards in the deck
     return myCards[myIndex--];

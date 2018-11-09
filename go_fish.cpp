@@ -36,79 +36,78 @@ int main( ) {
     dealHand(mainDeck, p1, numCards);   //deal cards to each player
     dealHand(mainDeck, p2, numCards);
 
-    booksChecker(&p1);
-    booksChecker(&p2);
-
     Player pA = p1;
     Player pB = p2;                     //Player variables for different turns in while loop
     Player pT;                          //for swap
 
-    while ((pA.getBookSize() < 13 && pB.getBookSize() < 13)) {
+    booksChecker(&pA);
+    booksChecker(&pB);
+
+    //While Loop conditions: Breaks out if a player reaches 14 books,
+    //  or if the either player reaches 0 cards and there are no more cards in the deck
+    while ((pA.getBookSize() < 14 && pB.getBookSize() < 14) && ((pA.getHandSize()!=0 || pB.getHandSize() != 0) && mainDeck.size() != 0)) {
         gfFile << pA.getName() << "'s Turn\n";
         cout << pA.getName() << "'s Turn\n";
 
-        if(pA.getHandSize()!=0 || pB.getHandSize() != 0) {
-
+            //If condition so that if hand is empty after getting a match and still cards in deck
+            if(pA.getHandSize() == 0 && mainDeck.size() > 0 ){
+                dealHand(mainDeck, pA, 1);
+                booksChecker(&pA);
+            }
 
             tempCard = pA.chooseCardFromHand();
+
             gfFile << pA.getName() <<": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
             cout << pA.getName() <<": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
 
-
-            while (pB.rankInHand(tempCard) && (pA.getBookSize()<14)) {                           //While pB has a card that matches pA's request
+            //While pB has a card that matches pA's request
+            while (pB.rankInHand(tempCard) && (pA.getBookSize()<14)) {
                 gfFile << pB.getName() << ": Yes!\n\n";
                 cout << pB.getName() << ": Yes!\n\n";
+
+                //Passing Card from one players hand to the other
                 Card cardMatch = pB.removeCardFromHand(tempCard);       //remove card from pB's hand and add it to pA's
                 pA.addCard(cardMatch);
                 booksChecker(&pA);                                      //add pA's new pair to books
+
+                //If condition so that if hand is empty after getting a match and still cards in deck
+                if(pA.getHandSize() == 0 && mainDeck.size() > 0 ){
+                    dealHand(mainDeck, pA, 1);
+                }
+                //Continues Turn
                 if (pA.getBookSize() < 14) {
                     tempCard = pA.chooseCardFromHand();                     //choose new card for while conditions
                     gfFile << pA.getName() << ": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
                     cout << pA.getName() << ": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
                 }
-                //WE NEED TO DO SOMETHING HERE SO THAT PA DOESNT ASK AGAIN AFTER HE's WON
             }
 
+            //pB did not have a card that matched pA's go fish
             if (pA.getBookSize() < 14 && pB.getBookSize() < 14 && mainDeck.size() > 0) {
-                gfFile << pB.getName() <<": Go Fish!\n\n";                                     //pB did not have a card that matched pA's go fish
+                gfFile << pB.getName() <<": Go Fish!\n\n";
                 cout << pB.getName() <<": Go Fish!\n\n";
-                if (mainDeck.size() != 0) {
+                if (mainDeck.size() > 0) {
                     dealHand(mainDeck, pA, 1);
                 }
                 booksChecker(&pA);
             }
 
-            pT = pA;                                                    //Swap player's turns
+            //Swap player's turns
+            pT = pA;
             pA = pB;
             pB = pT;
-        }
-
     }
 
     if (pA.getBookSize() == pB.getBookSize()) {
+
         gfFile << "Y'all tied!\n";
+        cout << "Y'all tied!\n";
+
     } else {
+
         gfFile << pB.getName() << " wins!\n";
-        cout << pA.getName() << "'s Books: " << pA.showBooks() << endl;
-        cout << pB.getName() << "'s Books: " << pB.showBooks() << endl;
-
-        cout << pA.getName() << "'s Hand: " << pA.showHand() << endl;
-        cout << pB.getName() << "'s Hand: " << pB.showHand() << endl;
-
-        cout << "Main Deck Size:" << mainDeck.size() << endl;
-
-        cout << "Total Cards:" << mainDeck.size()+(2*pA.getBookSize())+pA.getHandSize()+(2*pB.getBookSize())+pB.getHandSize()<< endl;
-
         cout << pB.getName() << " wins!\n";
     }
-
-//    tempCard = p1.chooseCardFromHand();
-//
-//    gfFile << "Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
-//
-
-
-
 
     cout << "End of GoFish!" << endl;
 
@@ -129,11 +128,7 @@ void booksChecker(Player *p){
           p->removeCardFromHand(*card1);
           p->removeCardFromHand(*card2);
       }
-
-
-
 }
-
 
 void dealHand(Deck &d, Player &p, int numCards)
 {
