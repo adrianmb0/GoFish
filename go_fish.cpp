@@ -43,7 +43,7 @@ int main( ) {
     Player pB = p2;                     //Player variables for different turns in while loop
     Player pT;                          //for swap
 
-    while ((pA.getBookSize() < 14 && pB.getBookSize() < 14)) {
+    while ((pA.getBookSize() < 13 && pB.getBookSize() < 13)) {
         gfFile << pA.getName() << "'s Turn\n";
         cout << pA.getName() << "'s Turn\n";
 
@@ -55,7 +55,7 @@ int main( ) {
             cout << pA.getName() <<": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
 
 
-            while (pB.rankInHand(tempCard)) {                           //While pB has a card that matches pA's request
+            while (pB.rankInHand(tempCard) && (pA.getBookSize()<14)) {                           //While pB has a card that matches pA's request
                 gfFile << pB.getName() << ": Yes!\n\n";
                 cout << pB.getName() << ": Yes!\n\n";
                 Card cardMatch = pB.removeCardFromHand(tempCard);       //remove card from pB's hand and add it to pA's
@@ -66,6 +66,7 @@ int main( ) {
                     gfFile << pA.getName() << ": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
                     cout << pA.getName() << ": Do you have a " << tempCard.rankString(tempCard.getRank()) << "?\n";
                 }
+                //WE NEED TO DO SOMETHING HERE SO THAT PA DOESNT ASK AGAIN AFTER HE's WON
             }
 
             if (pA.getBookSize() < 14 && pB.getBookSize() < 14 && mainDeck.size() > 0) {
@@ -88,12 +89,15 @@ int main( ) {
         gfFile << "Y'all tied!\n";
     } else {
         gfFile << pB.getName() << " wins!\n";
-        cout << pA.showBooks() << endl;
-        cout << pB.showBooks() << endl;
+        cout << pA.getName() << "'s Books: " << pA.showBooks() << endl;
+        cout << pB.getName() << "'s Books: " << pB.showBooks() << endl;
 
-        cout << pA.showHand() << endl;
-        cout << pB.showHand() << endl;
+        cout << pA.getName() << "'s Hand: " << pA.showHand() << endl;
+        cout << pB.getName() << "'s Hand: " << pB.showHand() << endl;
 
+        cout << "Main Deck Size:" << mainDeck.size() << endl;
+
+        cout << "Total Cards:" << mainDeck.size()+(2*pA.getBookSize())+pA.getHandSize()+(2*pB.getBookSize())+pB.getHandSize()<< endl;
 
         cout << pB.getName() << " wins!\n";
     }
