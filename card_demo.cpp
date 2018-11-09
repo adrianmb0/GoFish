@@ -13,6 +13,25 @@
 //void dealHand(Deck &d, Player &p, int numCards);
 //
 //int main( ) {
+
+//        cout << pA.getName() << "'s Books: " << pA.showBooks() << " || Total Books:" << pA.getBookSize() << endl;
+//
+//        cout << pB.getName() << "'s Books: " << pB.showBooks() << " || Total Books:" << pB.getBookSize() << endl;
+//
+//        cout << pA.getName() << "'s Hand: " << pA.showHand() << " || Total:" << pA.getHandSize() << endl;
+//        cout << pB.getName() << "'s Hand: " << pB.showHand() << " || Total:" << pB.getHandSize() << endl;
+//
+//        cout << "Main Deck Size: " << mainDeck.size() << endl;
+//
+//        cout << "Total Cards:" << mainDeck.size()+(2*pA.getBookSize())+pA.getHandSize()+(2*pB.getBookSize())+pB.getHandSize()<< endl << endl;
+//
+//        cout << "Main Deck Left:" << mainDeck.size() << endl;
+//
+//        //SHOW DECK//
+//        int deckBound = mainDeck.size();
+//        for(int i = 0; i < deckBound ; i++){
+//            cout << mainDeck.dealCard() << ", ";
+//        }
 //////////CARD TESTER//////////
 ////    Card testCard;
 ////
