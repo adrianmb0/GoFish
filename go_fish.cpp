@@ -17,7 +17,7 @@ void booksChecker(Player *p);
 int main( ) {
 
     ofstream gfFile;
-    gfFile.open("GoFish.txt");
+    gfFile.open("gofish_results.txt");
 
     cout << "Starting GoFish!" << endl;
 
