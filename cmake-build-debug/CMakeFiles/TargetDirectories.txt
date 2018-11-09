@@ -1,3 +1,0 @@
-/Users/davidfernandez/EE312/GoFish/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/davidfernandez/EE312/GoFish/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/davidfernandez/EE312/GoFish/cmake-build-debug/CMakeFiles/GoFish.dir
