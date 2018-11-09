@@ -75,7 +75,7 @@ Card Player::removeCardFromHand(Card c){
     Card temp(1, Card::spades);
 
     for(int i = 0; i< getHandSize(); i++){
-        if(c == myHand[i]){
+        if(c.getRank() == myHand[i].getRank()){         //only do rank since books are blind to suit
             temp = myHand[i];
             myHand.erase((myHand.begin())+i);
         }
